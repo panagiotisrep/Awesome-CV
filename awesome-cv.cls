@@ -161,6 +161,7 @@
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
 % Set the FontAwesome font to be up-to-date.
+\let\FA\relax
 \newfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
 \newfontfamily\headerfont[
@@ -604,9 +605,14 @@
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+  	\ifx&#5&%
+  	\else
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+    \fi
   \end{tabular*}%
 }
+
+
 
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
